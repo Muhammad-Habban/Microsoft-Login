@@ -10,7 +10,7 @@ function App() {
     setEmail(mail);
   };
   return (
-      email == null || email == "" ?
+      email === null || email === "" ?
     <SignUp setMail ={onEmailChange} /> : <Pwd mail = {email} />
   );
 }
